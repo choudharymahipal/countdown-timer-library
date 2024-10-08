@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/countdown-timer",
       "sourceRoot": "projects/countdown-timer/src",
-      "prefix": "lib",
+      "prefix": "mahi",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

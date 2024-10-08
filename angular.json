@@ -3,5 +3,41 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "countdown-timer": {
+      "projectType": "library",
+      "root": "projects/countdown-timer",
+      "sourceRoot": "projects/countdown-timer/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/countdown-timer/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/countdown-timer/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/countdown-timer/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/countdown-timer/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
   }
 }

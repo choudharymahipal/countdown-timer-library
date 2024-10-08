@@ -3,8 +3,6 @@ import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'mahi-countdown-timer',
-  standalone: true,
-  imports: [],
   template: `
     <div *ngIf="timeRemaining">
       <h2>Countdown Timer</h2>

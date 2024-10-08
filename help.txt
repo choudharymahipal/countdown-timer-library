@@ -1,0 +1,31 @@
+HOW I CREATED THIS PACKAGE LIBRARY
+---------------------START------------------------
+Step 1: Create blank application using angular
+ng new CountdownTimerLibrary --create-application=false
+
+Step 2: Create library in your application
+ng generate library countdown-timer
+
+Step 3: Build your library
+ng build countdown-timer
+
+Step 4: Create a .npmignore file in the root of your library (usually at projects/countdown/) to specify files to ignore, and include node_modules, dist, etc.
+
+Step 5: Login to NPM
+npm Login
+
+Step 6: Navigate to Your Library’s Dist Folder
+cd dist/countdown-timer
+
+Note: Before public, Please check package name already exist or Not
+npm search countdown-timer
+
+Note: If it exists, you can either use like this (in package.json of library):
+"name": "@yourusername/countdown-timer"
+
+Step 7: Public your library
+npm publish --access public
+
+---------------------END------------------------
+
+

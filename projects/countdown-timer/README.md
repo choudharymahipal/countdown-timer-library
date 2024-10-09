@@ -1,24 +1,64 @@
-# CountdownTimer
+## Please do not use it right now. It is under development library (till 15th October 2024).
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+# Countdown Timer Library
 
-## Code scaffolding
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
 
-Run `ng generate component component-name --project countdown-timer` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project countdown-timer`.
-> Note: Don't forget to add `--project countdown-timer` or else it will be added to the default project in your `angular.json` file. 
+## Overview
 
-## Build
+The **Countdown Timer Library** is an easy-to-use Angular library for creating countdown timers in your applications. Perfect for events, promotions, and more!
 
-Run `ng build countdown-timer` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Features
 
-## Publishing
+- Easy integration and setup
+- Customizable appearance
+- Event callbacks on completion
 
-After building your library with `ng build countdown-timer`, go to the dist folder `cd dist/countdown-timer` and run `npm publish`.
+## Installation
 
-## Running unit tests
+Install the library via npm:
 
-Run `ng test countdown-timer` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+npm install countdown-timer-library
+```
 
-## Further help
+## Usage
+### Step 1: Import the Module
+In your app.module.ts:
+```
+import { CountdownTimerModule } from 'countdown-timer-library';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@NgModule({
+  imports: [
+    CountdownTimerModule
+  ],
+})
+export class AppModule { }
+```
+
+### Step 2: Add the Component
+Use the countdown timer in your component's template:
+```
+<mahi-countdown-timer [countdownTime]="targetTime"> </mahi-countdown-timer>
+```
+
+### Step 3: Define the Target Time
+In your component TypeScript file:
+```
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-your-component',
+  templateUrl: './your-component.component.html'
+})
+export class YourComponent {
+  targetTime: Date = new Date('2024-12-31T23:59:59');
+
+  onCountdownComplete() {
+    console.log('Countdown completed!');
+  }
+}
+```
+
+## Contributing
+We welcome contributions to the Countdown Timer Library! If you'd like to help out, please visit our GitHub repository: [countdown-timer-library](https://github.com/choudharymahipal/countdown-timer-library).

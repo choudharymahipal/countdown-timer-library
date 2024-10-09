@@ -12,7 +12,7 @@ ng build countdown-timer
 Step 4: Create a .npmignore file in the root of your library (usually at projects/countdown/) to specify files to ignore, and include node_modules, dist, etc.
 
 Step 5: Login to NPM
-npm Login
+npm login
 
 Step 6: Navigate to Your Library’s Dist Folder
 cd dist/countdown-timer

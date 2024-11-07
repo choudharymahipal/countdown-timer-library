@@ -1,32 +1,30 @@
-## Please do not use it right now. It is under development library (till 15th October 2024).
-
 # Countdown Timer Library
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+You can install it from here [NPM Package](https://www.npmjs.com/package/@choudharymahipal/countdown-timer)
 
 ## Overview
-
-The **Countdown Timer Library** is an easy-to-use Angular library for creating countdown timers in your applications. Perfect for events, promotions, and more!
+CountdownTimer is a lightweight, customizable JavaScript library that enables you to create countdown timers effortlessly. Ideal for web applications, events, or any time-based functionality.
 
 ## Features
-
 - Easy integration and setup
 - Customizable appearance
-- Event callbacks on completion
 
 ## Installation
-
 Install the library via npm:
+```
+npm i @choudharymahipal/countdown-timer
+```
 
+if any dependancy error then try this
 ```
-npm install countdown-timer-library
+npm i @choudharymahipal/countdown-timer --legacy-peer-deps
 ```
+
 
 ## Usage
 ### Step 1: Import the Module
 In your app.module.ts:
 ```
-import { CountdownTimerModule } from 'countdown-timer-library';
+import { CountdownTimerModule } from '@choudharymahipal/countdown-timer';
 
 @NgModule({
   imports: [
@@ -39,7 +37,7 @@ export class AppModule { }
 ### Step 2: Add the Component
 Use the countdown timer in your component's template:
 ```
-<mahi-countdown-timer [countdownTime]="targetTime"> </mahi-countdown-timer>
+<mahi-countdown-timer [targetDate]="targetDate"></mahi-countdown-timer>
 ```
 
 ### Step 3: Define the Target Time
@@ -48,15 +46,11 @@ In your component TypeScript file:
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-your-component',
-  templateUrl: './your-component.component.html'
+  selector: 'app-root',
+  templateUrl: './app.component.html'
 })
 export class YourComponent {
-  targetTime: Date = new Date('2024-12-31T23:59:59');
-
-  onCountdownComplete() {
-    console.log('Countdown completed!');
-  }
+  targetTime: Date = new Date('2025-12-31T23:59:59');
 }
 ```
 

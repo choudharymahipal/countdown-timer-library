@@ -4,6 +4,8 @@ You can install it from here [NPM Package](https://www.npmjs.com/package/@choudh
 ## Overview
 CountdownTimer is a lightweight, customizable JavaScript library that enables you to create countdown timers effortlessly. Ideal for web applications, events, or any time-based functionality.
 
+![Coutdown-timer screenshot](https://raw.githubusercontent.com/choudharymahipal/choudharymahipal/80e97bf65b84dffef7684a535af3e2a88ec0ed3a/assets/images/timer.png)
+
 ## Features
 - Easy integration and setup
 - Customizable appearance

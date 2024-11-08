@@ -6,6 +6,8 @@ CountdownTimer is a lightweight, customizable JavaScript library that enables yo
 
 ![Coutdown-timer screenshot](https://raw.githubusercontent.com/choudharymahipal/choudharymahipal/80e97bf65b84dffef7684a535af3e2a88ec0ed3a/assets/images/timer.png)
 
+StackBlitz Demo: [Click here](https://stackblitz.com/edit/stackblitz-starters-kyfnbq?file=src%2Fmain.ts)
+
 ## Features
 - Easy integration and setup
 - Customizable appearance

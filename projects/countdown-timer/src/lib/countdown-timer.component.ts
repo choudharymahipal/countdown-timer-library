@@ -5,19 +5,19 @@ import { interval, Subscription } from 'rxjs';
   selector: 'mahi-countdown-timer',
   template: `
     <div class="counter" *ngIf="timeRemaining">
-      <div class="days">
+      <div class="days" *ngIf="display_days">
         <div class="value">{{ timeRemaining.days }}</div>
         <span>Days</span>
       </div>
-      <div class="hours">
+      <div class="hours" *ngIf="display_hours">
         <div class="value">{{ timeRemaining.hours }}</div>
         <span>Hours</span>
       </div>
-      <div class="minutes">
+      <div class="minutes" *ngIf="display_minutes">
         <div class="value">{{ timeRemaining.minutes }}</div>
         <span>Minutes</span>
       </div>
-      <div class="seconds">
+      <div class="seconds" *ngIf="display_seconds">
         <div class="value">{{ timeRemaining.seconds }}</div>
         <span>Seconds</span>
       </div>
@@ -67,13 +67,15 @@ import { interval, Subscription } from 'rxjs';
 })
 export class CountdownTimerComponent implements OnInit, OnDestroy {
   @Input() targetDate!: Date;
+  @Input() display_days: boolean = true;
+  @Input() display_hours: boolean = true;
+  @Input() display_minutes: boolean = true;
+  @Input() display_seconds: boolean = true;
   timeRemaining: any;
   private subscription!: Subscription;
 
   constructor() {
-    if (this.targetDate === undefined) {
-      this.targetDate = new Date('2025-12-31T23:59:59');
-    }
+    
   }
 
   ngOnInit(): void {

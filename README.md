@@ -41,9 +41,24 @@ export class AppModule { }
 
 ### Step 2: Add the Component
 Use the countdown timer in your component's template:
+For v0.0.2
 ```
 <mahi-countdown-timer [targetDate]="targetDate"></mahi-countdown-timer>
 ```
+
+For v1.0.0
+```
+<mahi-countdown-timer 
+    [targetDate]="targetDate"
+    [display_days]="display_days"
+    [display_hours]="display_hours"
+    [display_minutes]="display_minutes"
+    [display_seconds]="display_seconds"
+>
+</mahi-countdown-timer>
+```
+We have added 4 new properties to show and hide any card if you don't need it. `display_days`, `display_hours`, `display_minutes` and `display_seconds` are `boolean` type variables.
+
 
 ### Step 3: Define the Target Time
 In your component TypeScript file:
@@ -55,7 +70,11 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class YourComponent {
-  targetTime: Date = new Date('2025-12-31T23:59:59');
+  targetTime: Date = new Date('2025-12-31T23:59:59'); //Required
+  display_days: boolean = false; //Optional
+  display_hours: boolean = true; //Optional
+  display_minutes: boolean = true; //Optional
+  display_seconds: boolean = true; //Optional
 }
 ```
 

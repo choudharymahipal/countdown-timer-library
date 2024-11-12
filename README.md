@@ -1,4 +1,4 @@
-# Countdown Timer Library
+# Countdown Timer
 You can install it from here [NPM Package](https://www.npmjs.com/package/@choudharymahipal/countdown-timer)
 
 ## Overview

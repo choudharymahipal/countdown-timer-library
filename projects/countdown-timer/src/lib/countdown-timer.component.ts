@@ -1,78 +1,37 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
+import { iTimeRemaining } from '../Interfaces/iCountdown';
 
 @Component({
   selector: 'mahi-countdown-timer',
-  template: `
-    <div class="counter" *ngIf="timeRemaining">
-      <div class="days" *ngIf="display_days">
-        <div class="value">{{ timeRemaining.days }}</div>
-        <span>Days</span>
-      </div>
-      <div class="hours" *ngIf="display_hours">
-        <div class="value">{{ timeRemaining.hours }}</div>
-        <span>Hours</span>
-      </div>
-      <div class="minutes" *ngIf="display_minutes">
-        <div class="value">{{ timeRemaining.minutes }}</div>
-        <span>Minutes</span>
-      </div>
-      <div class="seconds" *ngIf="display_seconds">
-        <div class="value">{{ timeRemaining.seconds }}</div>
-        <span>Seconds</span>
-      </div>
-    </div>
-  `,
-  styles: `
-    .counter .days,
-    .counter .hours,
-    .counter .minutes,
-    .counter .seconds {
-      width: 22%;
-      height: 140px;
-      float: left;
-      text-align: center;
-      font-size: 48px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      color: #fff;
-      background-color: #673ab7;
-    }
-
-    .counter .days,
-    .counter .hours,
-    .counter .minutes {
-        margin-right: 4%;
-    }
-
-    .counter .days .value,
-    .counter .hours .value,
-    .counter .minutes .value,
-    .counter .seconds .value {
-        margin-top: 15px;
-        display: block;
-        width: 100%;
-    }
-
-    .counter span {
-        font-size: 18px;
-        text-transform: uppercase;
-        color: #f5a425;
-        font-weight: 500;
-        letter-spacing: 1px;
-        margin-top: 0px;
-        display: block;
-    }
-  `,
+  templateUrl: './countdown-timer.component.html',
+  styleUrl: './countdown-timer.component.scss'
 })
 export class CountdownTimerComponent implements OnInit, OnDestroy {
+  private subscription!: Subscription;
   @Input() targetDate!: Date;
+  //Show hide cards
   @Input() display_days: boolean = true;
   @Input() display_hours: boolean = true;
   @Input() display_minutes: boolean = true;
   @Input() display_seconds: boolean = true;
-  timeRemaining: any;
-  private subscription!: Subscription;
+
+  //Customizable Labels
+  @Input() label_days: string = "Days";
+  @Input() label_hours: string = "Hours";
+  @Input() label_minutes: string = "Minutes";
+  @Input() label_seconds: string = "Seconds";
+
+  //Callback
+  @Output() isTimerRunning = new EventEmitter<boolean>();
+  @Output() timeRemainingCount = new EventEmitter<iTimeRemaining>();
+  
+  timeRemaining = {
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  };
 
   constructor() {
     
@@ -97,6 +56,8 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
             minutes: 0,
             seconds: 0,
           };
+          this.isTimerRunning.emit(false);
+          this.timeRemainingCount.emit(this.timeRemaining);
           this.subscription.unsubscribe();
         } else {
           this.timeRemaining = {
@@ -107,9 +68,18 @@ export class CountdownTimerComponent implements OnInit, OnDestroy {
             minutes: Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60)),
             seconds: Math.floor((timeDiff % (1000 * 60)) / 1000),
           };
+          this.isTimerRunning.emit(true);
+          this.timeRemainingCount.emit(this.timeRemaining);
         }
       });
     } catch (error) {
+      this.isTimerRunning.emit(false);
+      this.timeRemainingCount.emit({
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      });
       console.error('Error from <mahi-countdown-timer> tag: ', error);
     }
   }

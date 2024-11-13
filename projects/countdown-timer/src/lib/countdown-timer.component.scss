@@ -1,0 +1,39 @@
+    .counter .days,
+    .counter .hours,
+    .counter .minutes,
+    .counter .seconds {
+      width: 22%;
+      height: 140px;
+      float: left;
+      text-align: center;
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #fff;
+      background-color: #673ab7;
+    }
+
+    .counter .days,
+    .counter .hours,
+    .counter .minutes {
+        margin-right: 4%;
+    }
+
+    .counter .days .value,
+    .counter .hours .value,
+    .counter .minutes .value,
+    .counter .seconds .value {
+        margin-top: 15px;
+        display: block;
+        width: 100%;
+    }
+
+    .counter span {
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #f5a425;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-top: 0px;
+        display: block;
+    }

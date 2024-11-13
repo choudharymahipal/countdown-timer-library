@@ -1,0 +1,18 @@
+<div class="counter" *ngIf="timeRemaining">
+    <div class="days" *ngIf="display_days">
+        <div class="value">{{ timeRemaining.days }}</div>
+        <span>{{label_days}}</span>
+    </div>
+    <div class="hours" *ngIf="display_hours">
+        <div class="value">{{ timeRemaining.hours }}</div>
+        <span>{{label_hours}}</span>
+    </div>
+    <div class="minutes" *ngIf="display_minutes">
+        <div class="value">{{ timeRemaining.minutes }}</div>
+        <span>{{label_minutes}}</span>
+    </div>
+    <div class="seconds" *ngIf="display_seconds">
+        <div class="value">{{ timeRemaining.seconds }}</div>
+        <span>{{label_seconds}}</span>
+    </div>
+</div>

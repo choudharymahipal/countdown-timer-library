@@ -94,7 +94,7 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html'
 })
 export class YourComponent {
-  targetTime: Date = new Date('2025-12-31T23:59:59'); //Required
+  targetDate: Date = new Date('2025-12-31T23:59:59'); //Required
 
   //show and hide cards
   display_days: boolean = false; //Optional
@@ -103,10 +103,10 @@ export class YourComponent {
   display_seconds: boolean = true; //Optional
 
   //labels
-  label_days: string = "Day"; //Optional
-  label_hours: string = "Hour"; //Optional
-  label_minutes: string = "Minute"; //Optional
-  label_seconds: string = "Second"; //Optional
+  label_days: string = "Days"; //Optional
+  label_hours: string = "Hours"; //Optional
+  label_minutes: string = "Minutes"; //Optional
+  label_seconds: string = "Seconds"; //Optional
 
   //Callback events
   isTimerRunning: boolean = false;

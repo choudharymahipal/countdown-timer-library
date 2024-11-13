@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 import { iTimeRemaining } from '../Interfaces/iCountdown';
 
